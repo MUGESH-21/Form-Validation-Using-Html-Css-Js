@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(wallpaperflare.com_wallpaper\ \(2\).jpg);
+            height: 100vh;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+            color: aliceblue;
+        }
+        input {
+            float: right;  
+            color: white; 
+            background-color: black;
+            border-radius: 10px;
+        }
+        textarea{
+            float: right;
+            color: white; 
+            background-color: black;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        form{
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px 70px 70px 70px;
+            /* width: 25%;
+            height: 50%; */
+            border-radius: 15px;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        h1{
+            text-align: center;
+            line-height: 50px;
+        }
+        .btn{
+            text-align: center;
+            justify-content: center;
+        }
+        button{
+            padding: 2% 5%;
+            border-radius: 15px;
+            background-color: black;
+            color: aliceblue;
+        }
+        input:hover{
+            background-color: aliceblue;
+            color: rgb(230, 80, 10);
+            cursor: pointer;
+        }
+        textarea:hover{
+            background-color: aliceblue;
+            color: rgb(230, 80, 10);
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: aliceblue;
+            color: black;
+            cursor: pointer;
+        }
+    
+        button {
+            background-color: red;
+            animation-name: example;
+            animation-duration:20s;
+            }
+
+            @keyframes example {
+            from {background-color: rgb(255, 7, 7);}
+            to {background-color: rgb(160, 248, 46);}
+            }
+
+            form {
+        width: 60vmin;
+        height: 50vmin;
+        display: grid;
+        place-content: center;
+        color: white;
+        text-shadow: 0 1px 0 #000;
+        
+        --border-angle: 0turn;
+        --main-bg: conic-gradient(
+            from var(--border-angle),
+            rgb(20, 9, 22),
+            rgb(65, 21, 21) 5%,
+            rgb(32, 32, 80) 60%,
+            rgb(16, 18, 25) 95%
+            );
+        
+        border: solid 5px transparent;
+        border-radius: 2em;
+        --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, #f03 99%, transparent);
+        
+        background: 
+            var(--main-bg) padding-box,
+
+            var(--gradient-border) border-box, 
+            var(--main-bg) border-box;
+        
+        background-position: center center;
+
+        animation: bg-spin 3s linear infinite;
+            @keyframes bg-spin {
+                to {
+                --border-angle: 1turn;
+                }
+            }
+
+        form:hover {
+            animation-play-state: paused;
+        }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <form action="new.html" name="validate" method="post" onsubmit="return check()" >
+        <h1>Form Validation </h1>
+        <div class="row">
+            <label for="">First Name :</label>
+            <input type="text" name="fname" >
+        </div><br>
+        <div class="row">
+            <label for="">last Name :</label>
+            <input type="text" name="lname">
+        </div><br>
+        <div class="row">
+            <label for="">City :</label>
+            <input type="text" name="city">
+        </div><br>
+        <div class="row">
+            <label for="">Phone Number :</label>
+            <input type="number" name="phone" >
+        </div><br>
+        <div class="row">
+            <label for="">Address :</label>
+            <textarea name="address" id=""></textarea>
+        </div><br>
+        <div class="btn">
+            <button type="submit">submit</button>
+        </div>
+    </form>
+
+    <script>
+        function check(){
+            var name1=document.validate.fname.value;
+            var name2=document.validate.lname.value;
+            var city=document.validate.city.value;
+            var number=document.validate.phone.value;
+            // var address=document.validate.address.value;
+            if(name1==null || name1==""){
+                alert("enter validate name");
+                return false;
+            }
+            else if(name2==null || name2==""){
+                alert("enter validate last name");
+                return false;
+            }
+            else if(city==null || city==""){
+                alert("enter a city name");
+                return false;
+            }
+            else if(number.length!=10){
+                alert("enter a 10 digit number");
+                return false;
+            }
+            else{
+                alert("Successfully Submited")
+            }
+        }
+</script>
+</body>
+</html>
